@@ -34,14 +34,15 @@ public class Grid {
 	}
 	
 	public void computeNextGen() {
+		
 		for(Cell[] cellArray : gridArray) {
 			for(Cell cell : cellArray) {
-				cell.countLivingNeighbors(gridArray);
+				cell.setAlive(cell.isAliveNextGen());
 			}
 		}
 		for(Cell[] cellArray : gridArray) {
 			for(Cell cell : cellArray) {
-				cell.setAlive(cell.isAliveNextGen());
+				cell.countLivingNeighbors(gridArray);
 			}
 		}
 	}
